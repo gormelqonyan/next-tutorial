@@ -1,5 +1,6 @@
 import React from "react";
 
+import LeftSidebar from "@/components/navigation/LeftSidebar";
 import Navbar from "@/components/navigation/navbar";
 
 interface RootLayoutProps {
@@ -8,10 +9,20 @@ interface RootLayoutProps {
 
 function RootLayout({ children }: RootLayoutProps) {
   return (
-    <main>
+    <div className={"min-h-[100vh]"}>
       <Navbar />
-      {children}
-    </main>
+      <main className={"flex"}>
+        <LeftSidebar />
+        <section
+          className={
+            "flex flex-1 flex-col px-6 pt-16 pb-6 max-md:pb-14 sm:px-14"
+          }
+        >
+          <div className={"mx-auto w-full max-w-5xl"}>{children}</div>
+        </section>
+        <aside>Aside</aside>
+      </main>
+    </div>
   );
 }
 

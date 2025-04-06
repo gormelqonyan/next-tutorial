@@ -8,6 +8,8 @@
   --color-primary-100: #FFF1E6;
   --color-primary-500: #FF7000;
 
+  --color-accent-100: #1DA1F2;
+
   --color-dark-100: #000000;
   --color-dark-200: #0F1117;
   --color-dark-300: #151821;
@@ -198,8 +200,17 @@
   .background-light900_dark200 {
     @apply bg-light-900 dark:bg-dark-200;
   }
+  .background-light900_dark300 {
+    @apply bg-light-900 dark:bg-dark-300;
+  }
   .background-light900_dark400 {
     @apply bg-light-900 dark:bg-dark-400;
+  }
+  .background-light800_dark400 {
+    @apply bg-light-800 dark:bg-dark-400;
+  }
+  .background-light700_dark300 {
+    @apply bg-light-700 dark:bg-dark-300;
   }
   .background-light800_darkgradient {
     @apply bg-light-800 dark:from-dark-100 dark:bg-gradient-to-b;

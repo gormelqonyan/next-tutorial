@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+// eslint-disable-next-line import/order
 import { Inter, Space_Grotesk as SpaceGrotesk } from "next/font/google";
 
 import "./globals.css";
