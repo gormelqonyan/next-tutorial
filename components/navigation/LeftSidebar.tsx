@@ -12,7 +12,7 @@ const LeftSidebar = async () => {
   return (
     <section
       className={
-        "background-light900_dark200 dark:border-dark-200 sticky top-[80px] hidden h-[calc(100vh_-_80px)] flex-col border-r border-[#C8CBD954] px-6 pt-12 md:flex lg:w-[266px]"
+        "background-light900_dark200 dark:border-dark-200 sticky top-[80px] hidden h-[calc(100vh_-_80px)] flex-col overflow-y-auto border-r border-[#C8CBD954] px-6 pt-12 md:flex lg:w-[266px]"
       }
     >
       <div className={"flex flex-1 flex-col"}>

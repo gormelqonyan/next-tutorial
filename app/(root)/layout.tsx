@@ -2,6 +2,7 @@ import React from "react";
 
 import LeftSidebar from "@/components/navigation/LeftSidebar";
 import Navbar from "@/components/navigation/navbar";
+import RightSideBar from "@/components/navigation/RightSideBar";
 
 interface RootLayoutProps {
   children: React.ReactNode;
@@ -20,7 +21,7 @@ function RootLayout({ children }: RootLayoutProps) {
         >
           <div className={"mx-auto w-full max-w-5xl"}>{children}</div>
         </section>
-        <aside>Aside</aside>
+        <RightSideBar />
       </main>
     </div>
   );
