@@ -59,7 +59,7 @@ const SearchInput = ({
         onChange={(e) => setValue(e.target.value)}
         placeholder={placeholder}
         className={
-          "paragraph-regular no-focus text-dark400_light700 border-none bg-transparent"
+          "paragraph-regular no-focus text-dark400_light700 border-none bg-transparent shadow-none"
         }
       />
     </div>

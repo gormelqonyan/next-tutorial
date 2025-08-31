@@ -1,3 +1,4 @@
+import HomeFilters from "@/components/filters/HomeFilters";
 import SearchInput from "@/components/search/SearchInput";
 import { Button } from "@/components/ui/button";
 
@@ -19,7 +20,7 @@ export default async function Home() {
       <section className={"mt-[30px]"}>
         <SearchInput route={"/"} placeholder={"Search for questions"} />
       </section>
-      <section>Filters</section>
+      <HomeFilters />
       <section>
         <div>Question 1</div>
         <div>Question 2</div>
