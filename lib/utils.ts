@@ -17,33 +17,36 @@ export function getDeviconClassName(techName: string) {
 }
 
 export const fromUrlQuery = ({
+  pathname,
   searchParams,
   key,
   value,
 }: {
+  pathname: string;
   searchParams: URLSearchParams;
   key: string;
   value: string;
 }) => {
+  if (!pathname) return;
   const queryString = qs.parse(searchParams.toString());
   queryString[key] = value;
 
-  console.log("window.location.pathname", window.location.pathname);
-  console.log("queryString", queryString);
-
   return qs.stringifyUrl({
-    url: window.location.pathname,
+    url: pathname,
     query: queryString,
   });
 };
 
 export const removeQueryFromUrl = ({
+  pathname,
   searchParams,
   keys,
 }: {
+  pathname: string;
   searchParams: URLSearchParams;
   keys: string[];
 }) => {
+  if (!pathname) return;
   const queryString = qs.parse(searchParams.toString());
 
   keys.forEach((key) => {
@@ -51,7 +54,7 @@ export const removeQueryFromUrl = ({
   });
 
   return qs.stringifyUrl(
-    { url: window.location.pathname, query: queryString },
+    { url: pathname, query: queryString },
     { skipNull: true },
   );
 };

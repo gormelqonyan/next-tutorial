@@ -2,7 +2,13 @@ import HomeFilters from "@/components/filters/HomeFilters";
 import SearchInput from "@/components/search/SearchInput";
 import { Button } from "@/components/ui/button";
 
-export default async function Home() {
+interface SearchParams {
+  searchParams: Promise<{ [key: string]: string }>;
+}
+
+export default async function Home({ searchParams }: SearchParams) {
+  const { filter, query } = await searchParams;
+  console.log({ filter, query });
   return (
     <>
       <section

@@ -1,6 +1,6 @@
 "use client";
-import { useRouter, useSearchParams } from "next/navigation";
-import React, { useState } from "react";
+import { useRouter, useSearchParams, usePathname } from "next/navigation";
+import React from "react";
 
 import { Button } from "@/components/ui/button";
 import { cn, fromUrlQuery, removeQueryFromUrl } from "@/lib/utils";
@@ -15,48 +15,48 @@ const filters = [
 const HomeFilters = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const filterParams = searchParams.get("filter");
+  const pathname = usePathname();
 
-  const [activeFilter, setActiveFilter] = useState(filterParams || "");
+  const activeFilter = searchParams.get("filter") || "";
 
   const handleFilterChange = (filter: string) => {
-    let newUrl = "";
+    let newUrl;
+
     if (filter === activeFilter) {
-      setActiveFilter("");
       newUrl = removeQueryFromUrl({
+        pathname,
         searchParams,
         keys: ["filter"],
       });
     } else {
-      setActiveFilter(filter);
-
       newUrl = fromUrlQuery({
+        pathname,
         searchParams,
         key: "filter",
         value: filter,
       });
     }
 
-    router.push(newUrl, { scroll: false });
+    if (newUrl) {
+      router.push(newUrl, { scroll: false });
+    }
   };
 
   return (
-    <div className={"mt-[30px] flex items-center gap-3"}>
-      {filters.map((filter) => {
-        return (
-          <Button
-            key={filter.name}
-            className={cn(
-              "bg-light-800 dark:bg-dark-300 text-dark-500 dark:text-light-500 hover:dark:bg-dark-400 hover:bg-primary-100 rounded-lg px-6 py-3 text-sm font-medium",
-              activeFilter === filter.value &&
-                "bg-primary-100 dark:bg-dark-400 !text-primary-500",
-            )}
-            onClick={() => handleFilterChange(filter.value)}
-          >
-            {filter.name}
-          </Button>
-        );
-      })}
+    <div className="mt-[30px] flex items-center gap-3">
+      {filters.map((filter) => (
+        <Button
+          key={filter.name}
+          className={cn(
+            "bg-light-800 dark:bg-dark-300 text-dark-500 dark:text-light-500 hover:dark:bg-dark-400 hover:bg-primary-100 rounded-lg px-6 py-3 text-sm font-medium",
+            activeFilter === filter.value &&
+              "bg-primary-100 dark:bg-dark-400 !text-primary-500",
+          )}
+          onClick={() => handleFilterChange(filter.value)}
+        >
+          {filter.name}
+        </Button>
+      ))}
     </div>
   );
 };

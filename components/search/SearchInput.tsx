@@ -31,12 +31,14 @@ const SearchInput = ({
       let newUrl;
       if (value) {
         newUrl = fromUrlQuery({
+          pathname,
           searchParams,
           value,
           key: "query",
         });
       } else if (route === pathname) {
         newUrl = removeQueryFromUrl({
+          pathname,
           searchParams,
           keys: ["query"],
         });
