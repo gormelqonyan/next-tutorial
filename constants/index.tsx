@@ -16,6 +16,7 @@ export const ROUTES = {
   ASK_QUESTION: "/ask-question",
   PROFILE_DETAILS: (id: string) => `/profile/${id}`,
   TAG_DETAILS: (id: string) => `/tags/${id}`,
+  QUESTION: (id: string) => `/question/${id}`,
 };
 
 export const techMap: { [key: string]: string } = {

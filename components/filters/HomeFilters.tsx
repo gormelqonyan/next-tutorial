@@ -43,7 +43,7 @@ const HomeFilters = () => {
   };
 
   return (
-    <div className="mt-[30px] flex items-center gap-3">
+    <div className="mt-[30px] mb-10 flex flex-wrap items-center gap-3">
       {filters.map((filter) => (
         <Button
           key={filter.name}

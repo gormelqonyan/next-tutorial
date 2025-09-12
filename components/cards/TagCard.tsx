@@ -7,7 +7,7 @@ import { getDeviconClassName } from "@/lib/utils";
 type TagCardProps = {
   id: string;
   name: string;
-  count: number;
+  count?: number;
 };
 
 const TagCard = ({ id, name, count }: TagCardProps) => {
@@ -15,7 +15,7 @@ const TagCard = ({ id, name, count }: TagCardProps) => {
   return (
     <Link
       href={ROUTES.TAG_DETAILS(id)}
-      className={"mb-4 flex items-center justify-between"}
+      className={"flex items-center justify-between"}
     >
       <div
         className={
